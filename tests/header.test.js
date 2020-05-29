@@ -19,6 +19,7 @@ test('the header has the correct text', async () => {
   const text = await page.getContentsOf('a.brand-logo');
 
   expect(text).toEqual('Blogster');
+  done();
 });
 
 test('clicking login starts oauth flow', async () => {
@@ -27,6 +28,7 @@ test('clicking login starts oauth flow', async () => {
   const url = await page.url();
 
   expect(url).toMatch(/accounts\.google\.com/);
+  done();
 });
 
 test('When signed in, shows logout button', async () => {
@@ -35,4 +37,5 @@ test('When signed in, shows logout button', async () => {
   const text = await page.$eval('a[href="/auth/logout"]', el => el.innerHTML);
 
   expect(text).toEqual('Logout');
+  done();
 });
