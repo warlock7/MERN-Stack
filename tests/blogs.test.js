@@ -29,7 +29,6 @@ describe('When logged in', async () => {
     const label = await page.getContentsOf('form label');
 
     expect(label).toEqual('Blog Title');
-    done();
   });
 
   describe('And using valid inputs', async () => {
@@ -47,7 +46,6 @@ describe('When logged in', async () => {
       const text = await page.getContentsOf('h5');
 
       expect(text).toEqual('Please confirm your entries');
-      done();
     });
 
     test('Submitting then saving adds blog to index page', async () => {
@@ -59,7 +57,6 @@ describe('When logged in', async () => {
 
       expect(title).toEqual('My Title');
       expect(content).toEqual('My Content');
-      done();
     });
   });
 
@@ -108,7 +105,6 @@ describe('User is not logged in', async () => {
 
     for (let result of results) {
       expect(result).toEqual({ error: 'You must log in!' });
-      done();
     }
   });
 });
