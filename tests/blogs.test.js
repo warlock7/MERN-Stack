@@ -75,7 +75,6 @@ describe('When logged in', async () => {
 
       expect(titleError).toEqual('You must provide a value');
       expect(contentError).toEqual('You must provide a value');
-      done();
     });
   });
 });
