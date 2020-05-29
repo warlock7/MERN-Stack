@@ -11,6 +11,10 @@ afterEach(async () => {
   await page.close();
 });
 
+afterAll(async () => {
+  await page.close();
+});
+
 test('the header has the correct text', async () => {
   const text = await page.getContentsOf('a.brand-logo');
 
