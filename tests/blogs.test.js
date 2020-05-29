@@ -21,6 +21,10 @@ describe('When logged in', async () => {
     await page.click('a.btn-floating');
   });
 
+  afterAll(async () => {
+    await page.close();
+  });
+
   test('can see blog create form', async () => {
     const label = await page.getContentsOf('form label');
 
@@ -32,6 +36,10 @@ describe('When logged in', async () => {
       await page.type('.title input', 'My Title');
       await page.type('.content input', 'My Content');
       await page.click('form button');
+    });
+
+    afterAll(async () => {
+      await page.close();
     });
 
     test('Submitting takes user to review screen', async () => {
@@ -57,6 +65,10 @@ describe('When logged in', async () => {
       await page.click('form button');
     });
 
+    afterAll(async () => {
+      await page.close();
+    });
+
     test('the form shows an error message', async () => {
       const titleError = await page.getContentsOf('.title .red-text');
       const contentError = await page.getContentsOf('.content .red-text');
@@ -68,6 +80,10 @@ describe('When logged in', async () => {
 });
 
 describe('User is not logged in', async () => {
+  afterAll(async () => {
+    await page.close();
+  });
+  
   const actions = [
     {
       method: 'get',
